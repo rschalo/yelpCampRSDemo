@@ -18,10 +18,15 @@ var commentRoutes = require(`./routes/comments`),
 
 //seedDB();
 
-mongoose.connect("mongodb://localhost/yelp_camp_v3", {
+mongoose.connect('mongodb+srv://rschalo:0rqJdPYxA5hVjujU@cluster0-pfvxq.mongodb.net/test?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
+})
+
+/*mongoose.connect("mongodb://localhost/yelp_camp_v3", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});*/
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + `/public`));
