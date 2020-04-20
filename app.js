@@ -56,6 +56,6 @@ app.use(`/`, indexRoutes);
 app.use(`/campgrounds/:id/comments`, commentRoutes);
 app.use(`/campgrounds`, campgroundRoutes);
 
-app.listen(3000, function (req, res) {
-  console.log('YelpCamp server is live');
+app.listen(process.env.PORT, function (req, res) {
+  console.log('YelpCamp server is live on', process.env.PORT);
 });
