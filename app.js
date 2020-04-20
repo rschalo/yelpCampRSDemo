@@ -16,12 +16,12 @@ var commentRoutes = require(`./routes/comments`),
   campgroundRoutes = require(`./routes/campgrounds`),
   indexRoutes = require(`./routes/index`);
 
-//seedDB();
+// huge thank you to https://www.youtube.com/watch?time_continue=71&v=imR9LlbG3pU&feature=emb_title for help setting process.env.MONGDB_URI in Heroku
 
 mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
-}, () => { console.log('we are connected')}).catch(err => console.log(err))
+}, () => { console.log('DB successfully connected')}).catch(err => console.log(err))
 
 /*mongoose.connect("mongodb://localhost/yelp_camp_v3", {
   useNewUrlParser: true,
