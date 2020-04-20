@@ -18,7 +18,7 @@ var commentRoutes = require(`./routes/comments`),
 
 //seedDB();
 
-mongoose.connect(process.env.MONGODB_URI || PORT, {
+mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 }, () => { console.log('we are connected')}).catch(err => console.log(err))
@@ -56,6 +56,6 @@ app.use(`/`, indexRoutes);
 app.use(`/campgrounds/:id/comments`, commentRoutes);
 app.use(`/campgrounds`, campgroundRoutes);
 
-app.listen(process.env.PORT || 3000, function (req, res) {
+app.listen(3000, function (req, res) {
   console.log('YelpCamp server is live');
 });
