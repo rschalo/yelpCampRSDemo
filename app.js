@@ -18,14 +18,8 @@ var commentRoutes = require(`./routes/comments`),
 
 // huge thank you to https://www.youtube.com/watch?time_continue=71&v=imR9LlbG3pU&feature=emb_title for help setting process.env.MONGDB_URI in Heroku
 console.log(process.env.DEVDB_URI);
-<<<<<<< HEAD
-mongoose.connect('mongodb+srv://rschalo:0rqJdPYxA5hVjujU@cluster0-pfvxq.mongodb.net/test?retryWrites=true&w=majority' || process.env.DEVDB_URI, {
-||||||| merged common ancestors
-mongoose.connect(process.env.MONGODB_URI || process.env.DEVDB_URI, {
-=======
 console.log(process.env.MONGODB_URI);
-mongoose.connect(process.env.MONGODB_URI || process.env.DEVDB_URI, {
->>>>>>> 6289a179b8baebe3c382f1e3c5f081105f38bb88
+mongoose.connect('mongodb+srv://rschalo:0rqJdPYxA5hVjujU@cluster0-pfvxq.mongodb.net/test?retryWrites=true&w=majority' || process.env.DEVDB_URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 }, () => { console.log('DB successfully connected')}).catch(err => console.log(err))
