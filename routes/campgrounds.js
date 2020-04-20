@@ -4,7 +4,7 @@ var Campground = require(`../models/campground`);
 var middleware = require('../middleware');
 
 //campground get and new
-
+/*
 router
   .route(`/`)
   .get((req, res) => {
@@ -56,6 +56,43 @@ router.get('/', function(req, res) {
     }
   });
 });
+*/
+
+//Colt get route
+router.get("/", function(req, res){	
+  // Get all campgrounds from DB	
+  Campground.find({}, function(err, allCampgrounds){	
+     if(err){	
+         console.log(err);	
+     } else {	
+        res.render("campgrounds/index",{campgrounds:allCampgrounds});	
+     }	
+  });	
+});
+
+//Colt Create Route
+router.post("/", middleware.isLoggedIn, function(req, res){	
+  // get data from form and add to campgrounds array	
+  var name = req.body.name;	
+  var image = req.body.image;	
+  var desc = req.body.description;	
+  var author = {	
+      id: req.user._id,	
+      username: req.user.username	
+  }	
+  var newCampground = {name: name, image: image, description: desc, author:author}	
+  // Create a new campground and save to DB	
+  Campground.create(newCampground, function(err, newlyCreated){	
+      if(err){	
+          console.log(err);	
+      } else {	
+          //redirect back to campgrounds page	
+          console.log(newlyCreated);	
+          res.redirect("/campgrounds");	
+      }	
+  });	
+});
+
 
 //campground get new route
 router.get('/new', middleware.isLoggedIn, function(req, res) {
