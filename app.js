@@ -22,13 +22,10 @@ var commentRoutes = require(`./routes/comments`),
 const URI =
   'mongodb+srv://rschalo:0rqJdPYxA5hVjujU@cluster0-pfvxq.mongodb.net/test?retryWrites=true&w=majority';
 
-mongoose.Promise = global.Promise;
-
 mongoose.connect(URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
-  useCreateIndex: true,
-});
+}, () => { console.log('we are connected')}).catch(err => console.log(err))
 
 /*mongoose.connect("mongodb://localhost/yelp_camp_v3", {
   useNewUrlParser: true,
