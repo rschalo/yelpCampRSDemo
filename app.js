@@ -18,10 +18,19 @@ var commentRoutes = require(`./routes/comments`),
 
 //seedDB();
 
-mongoose.connect('mongodb+srv://rschalo:0rqJdPYxA5hVjujU@cluster0-pfvxq.mongodb.net/test?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+//implement mongoose promise error fix from https://github.com/Automattic/mongoose/issues/8373
+const URI = 'mongodb+srv://rschalo:0rqJdPYxA5hVjujU@cluster0-pfvxq.mongodb.net/test?retryWrites=true&w=majority'
+
+mongoose.Promise = global.Promise;
+
+const connectDB = async () => {
+  mongoose.connect(URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true
+  })
+  console.log('DB Connected...')
+}
 
 /*mongoose.connect("mongodb://localhost/yelp_camp_v3", {
   useNewUrlParser: true,
@@ -56,6 +65,8 @@ app.use(`/`, indexRoutes);
 app.use(`/campgrounds/:id/comments`, commentRoutes);
 app.use(`/campgrounds`, campgroundRoutes);
 
-app.listen(process.env.PORT || 3000, function(req, res) {
-  console.log("YelpCamp server is live");
+
+const Port = process.env.Port || 3000;
+app.listen(Port, function(req, res) {
+  console.log("YelpCamp server is live on ", Port);
 });
