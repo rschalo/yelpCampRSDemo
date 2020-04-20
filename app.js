@@ -24,14 +24,11 @@ const URI =
 
 mongoose.Promise = global.Promise;
 
-const connectDB = async () => {
-  mongoose.connect(URI, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useCreateIndex: true,
-  });
-  console.log('DB Connected...');
-};
+mongoose.connect(URI, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+});
 
 /*mongoose.connect("mongodb://localhost/yelp_camp_v3", {
   useNewUrlParser: true,
@@ -66,7 +63,6 @@ app.use(`/`, indexRoutes);
 app.use(`/campgrounds/:id/comments`, commentRoutes);
 app.use(`/campgrounds`, campgroundRoutes);
 
-connectDB();
 const Port = process.env.Port || 3000;
 app.listen(Port, function (req, res) {
   console.log('YelpCamp server is live on ', Port);
