@@ -17,7 +17,7 @@ var commentRoutes = require(`./routes/comments`),
   indexRoutes = require(`./routes/index`);
 
 // huge thank you to https://www.youtube.com/watch?time_continue=71&v=imR9LlbG3pU&feature=emb_title for help setting process.env.MONGDB_URI in Heroku
-
+console.log(process.env.DEVDB_URI);
 mongoose.connect(process.env.MONGODB_URI || process.env.DEVDB_URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
