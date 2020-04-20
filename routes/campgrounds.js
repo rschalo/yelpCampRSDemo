@@ -1,7 +1,7 @@
-let express = require(`express`);
-let router = express.Router();
-let Campground = require(`../models/campground`);
-let middleware = require('../middleware');
+var express = require(`express`);
+var router = express.Router();
+var Campground = require(`../models/campground`);
+var middleware = require('../middleware');
 
 //campground get and new
 
@@ -17,15 +17,15 @@ router
       });
   })
   .post(middleware.isLoggedIn, (req, res, next) => {
-    let name = req.body.name;
-    let image = req.body.image;
-    let price = req.body.price;
-    let description = req.body.description;
-    let author = {
+    var name = req.body.name;
+    var image = req.body.image;
+    var price = req.body.price;
+    var description = req.body.description;
+    var author = {
       id: req.user._id,
       username: req.user.username
     };
-    let newCampground = {
+    var newCampground = {
       name: name,
       image: image,
       description: description,

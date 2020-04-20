@@ -1,4 +1,4 @@
-let express = require('express'),
+var express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
@@ -12,7 +12,7 @@ let express = require('express'),
 flash = require(`connect-flash`);
 
 //requiring routes
-let commentRoutes = require(`./routes/comments`),
+var commentRoutes = require(`./routes/comments`),
   campgroundRoutes = require(`./routes/campgrounds`),
   indexRoutes = require(`./routes/index`);
 
