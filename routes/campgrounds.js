@@ -4,6 +4,7 @@ var Campground = require(`../models/campground`);
 var middleware = require("../middleware");
 
 //campground get and new
+/*
 router
   .route(`/`)
   .get((req, res) => {
@@ -45,6 +46,17 @@ router
     res.redirect("/");
     console.log("Added " + newCampground["name"]);
   });
+*/
+router.get('/', function(req, res) {
+  Campground.find({}, function(err, allCampgrounds) {
+    if (err) {
+      console.log(err)
+    } else {
+      res.render(`campgrounds/index`, { campgrounds: allCampgrounds })
+    }
+  })
+})
+
 
 //campground new route
 router.get("/new", middleware.isLoggedIn, function(req, res) {
