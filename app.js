@@ -18,11 +18,7 @@ var commentRoutes = require(`./routes/comments`),
 
 //seedDB();
 
-//implement mongoose promise error fix from https://github.com/Automattic/mongoose/issues/8373
-const URI =
-  'mongodb+srv://rschalo:0rqJdPYxA5hVjujU@cluster0-pfvxq.mongodb.net/test?retryWrites=true&w=majority';
-
-mongoose.connect(URI, {
+mongoose.connect(process.env.MONGODB_URI || PORT, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 }, () => { console.log('we are connected')}).catch(err => console.log(err))
@@ -60,7 +56,6 @@ app.use(`/`, indexRoutes);
 app.use(`/campgrounds/:id/comments`, commentRoutes);
 app.use(`/campgrounds`, campgroundRoutes);
 
-const Port = process.env.Port || 3000;
-app.listen(Port, function (req, res) {
-  console.log('YelpCamp server is live on ', Port);
+app.listen(process.env.PORT || 3000, function (req, res) {
+  console.log('YelpCamp server is live');
 });
