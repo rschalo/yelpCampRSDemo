@@ -1,26 +1,26 @@
-<%- include("../partials/header") %>
+<%- include('../partials/header') %>
 
 <h1>Create a New Campground</h1>
 
-<form class="mb-1 container-fluid" action="/campgrounds" method="POST">
-    <div class="form-group">
-        <input class="form-control" type="text" name="name" placeholder="name" required>
+<form class='mb-1 container-fluid' action='/campgrounds' method='POST'>
+    <div class='form-group'>
+        <input class='form-control' type='text' name='name' placeholder='name' required>
     </div>
-    <div class="form-group">
-        <input class="form-control" type="text" name="image" placeholder="image url" required>
+    <div class='form-group'>
+        <input class='form-control' type='text' name='image' placeholder='image url' required>
     </div>
-    <div class="form-group">
-        <input class="form-control" type="text" name="description" placeholder="description" required>
+    <div class='form-group'>
+        <input class='form-control' type='text' name='description' placeholder='description' required>
     </div>
-    <div class="form-group">
-        <input class="form-control" type="number" name="price" placeholder="price" min="0.01" step="0.01" required>
+    <div class='form-group'>
+        <input class='form-control' type='number' name='price' placeholder='price' min='0.01' step='0.01' required>
     </div>
         <button>Submit!</button>
     </div>
 </form>
-<div class="container-fluid">
-<a class="btn btn-info" href="/">Return to Home</a>
-<a class="btn btn-info" href="/campgrounds">Go Back to Campgrounds</a>
+<div class='container-fluid'>
+<a class='btn btn-info' href='/'>Return to Home</a>
+<a class='btn btn-info' href='/campgrounds'>Go Back to Campgrounds</a>
 </div>
 
-<%- include("../partials/footer") %>
+<%- include('../partials/footer') %>

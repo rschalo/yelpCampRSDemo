@@ -1,7 +1,7 @@
-var express = require(`express`);
-var router = express.Router();
-var Campground = require(`../models/campground`);
-var middleware = require("../middleware");
+let express = require(`express`);
+let router = express.Router();
+let Campground = require(`../models/campground`);
+let middleware = require('../middleware');
 
 //campground get and new
 
@@ -17,15 +17,15 @@ router
       });
   })
   .post(middleware.isLoggedIn, (req, res, next) => {
-    var name = req.body.name;
-    var image = req.body.image;
-    var price = req.body.price;
-    var description = req.body.description;
-    var author = {
+    let name = req.body.name;
+    let image = req.body.image;
+    let price = req.body.price;
+    let description = req.body.description;
+    let author = {
       id: req.user._id,
       username: req.user.username
     };
-    var newCampground = {
+    let newCampground = {
       name: name,
       image: image,
       description: description,
@@ -43,8 +43,8 @@ router
       }
     });
     //redirect back to campgrounds page
-    res.redirect("/");
-    console.log("Added " + newCampground["name"]);
+    res.redirect('/');
+    console.log('Added ' + newCampground['name']);
   });
 
 router.get('/', function(req, res) {
@@ -58,20 +58,20 @@ router.get('/', function(req, res) {
 });
 
 //campground get new route
-router.get("/new", middleware.isLoggedIn, function(req, res) {
-  res.render("campgrounds/new");
+router.get('/new', middleware.isLoggedIn, function(req, res) {
+  res.render('campgrounds/new');
 });
 
 //campground show route
-router.get("/:id", function(req, res) {
+router.get('/:id', function(req, res) {
   Campground.findById(req.params.id)
-    .populate("comments")
+    .populate('comments')
     .exec(function(err, foundCampground) {
       if (err) {
         console.log(err);
       } else {
         console.log(foundCampground);
-        res.render("campgrounds/show", { campground: foundCampground });
+        res.render('campgrounds/show', { campground: foundCampground });
       }
     });
 });

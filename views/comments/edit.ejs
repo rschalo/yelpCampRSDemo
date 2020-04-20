@@ -1,26 +1,26 @@
-<%- include("../partials/header") %>
+<%- include('../partials/header') %>
 
-<div class="row">
-  <div class="col-md-12">
-    <div class="card text-center col-md-6 m-auto p-2">
+<div class='row'>
+  <div class='col-md-12'>
+    <div class='card text-center col-md-6 m-auto p-2'>
       <h3>Edit Comment</h3>
 
       <form
-        class="mb-1 container-fluid"
-        action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT"
-        method="POST"
+        class='mb-1 container-fluid'
+        action='/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT'
+        method='POST'
       >
-      <div class="form-group">
-          <input type="text" class="form-control" name="comment[text]" value="<%= comment.text %>">
+      <div class='form-group'>
+          <input type='text' class='form-control' name='comment[text]' value='<%= comment.text %>'>
       </div>
-        <button class="btn btn-sm btn-success">Submit!</button>
+        <button class='btn btn-sm btn-success'>Submit!</button>
       </form>
-      <div class="container-fluid">
-        <a class="btn btn-sm btn-info" href="/">Return to Home</a>
-        <a class="btn btn-sm btn-info" href="/campgrounds/<%= campground_id %>">Go Back to Comments</a>
+      <div class='container-fluid'>
+        <a class='btn btn-sm btn-info' href='/'>Return to Home</a>
+        <a class='btn btn-sm btn-info' href='/campgrounds/<%= campground_id %>'>Go Back to Comments</a>
       </div>
     </div>
   </div>
 </div>
 
-<%- include("../partials/footer") %>
+<%- include('../partials/footer') %>

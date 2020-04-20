@@ -1,8 +1,8 @@
-var Campground = require(`../models/campground`);
-var Comment = require(`../models/comment`);
+let Campground = require(`../models/campground`);
+let Comment = require(`../models/comment`);
 
 // all middleware goes here
-var middlewareObj = {};
+let middlewareObj = {};
 
 middlewareObj.confirmCampgroundOwner = function(req, res, next) {
   if (req.isAuthenticated()) {

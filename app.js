@@ -1,4 +1,4 @@
-var express = require('express'),
+let express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
   mongoose = require('mongoose'),
@@ -12,7 +12,7 @@ var express = require('express'),
 flash = require(`connect-flash`);
 
 //requiring routes
-var commentRoutes = require(`./routes/comments`),
+let commentRoutes = require(`./routes/comments`),
   campgroundRoutes = require(`./routes/campgrounds`),
   indexRoutes = require(`./routes/index`);
 
@@ -53,6 +53,6 @@ app.use(`/`, indexRoutes);
 app.use(`/campgrounds/:id/comments`, commentRoutes);
 app.use(`/campgrounds`, campgroundRoutes);
 
-app.listen(process.env.PORT, function (req, res) {
+app.listen(3000, function (req, res) {
   console.log('YelpCamp server is live on', process.env.PORT);
 });

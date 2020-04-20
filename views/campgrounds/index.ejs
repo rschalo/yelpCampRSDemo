@@ -1,27 +1,27 @@
-<%- include("../partials/header") %>
+<%- include('../partials/header') %>
 
-  <div class="container mt-3">
-    <header class="jumbotron">
-        <h1 class="display-3">Welcome To YelpCamp</h1>
+  <div class='container mt-3'>
+    <header class='jumbotron'>
+        <h1 class='display-3'>Welcome To YelpCamp</h1>
         <p>View handpicked and reviewed campgrounds from around the world</p>
         <p>
-            <a class="btn btn-info btn-lrg" href="/campgrounds/new">Add a New Campground</a>
-            <a class="btn btn-info btn-lrg" href="/">Return to Home</a>
+            <a class='btn btn-info btn-lrg' href='/campgrounds/new'>Add a New Campground</a>
+            <a class='btn btn-info btn-lrg' href='/'>Return to Home</a>
         </p>
     </header>
   </div>
 
-<div class="container">
-    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+<div class='container'>
+    <div class='row text-center' style='display: flex; flex-wrap: wrap;'>
         <% campgrounds.forEach(function(campground){%>
-            <div class="col-md-3 col-sm-6">
-                <div class="figure-img img-thumbnail">
-                    <img src="<%= campground.image %>" class="img-fluid">
-                    <div class="figure-caption" style="color: black;">
+            <div class='col-md-3 col-sm-6'>
+                <div class='figure-img img-thumbnail'>
+                    <img src='<%= campground.image %>' class='img-fluid'>
+                    <div class='figure-caption' style='color: black;'>
                         <h4><%= campground.name %></h4>
                     </div>
                     <p>
-                        <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>">More Info</a>
+                        <a class='btn btn-primary' href='/campgrounds/<%= campground._id %>'>More Info</a>
                     </p>
                 </div>
                 
@@ -31,4 +31,4 @@
 </div>
 
 
-<%- include("../partials/footer")%>
+<%- include('../partials/footer')%>
